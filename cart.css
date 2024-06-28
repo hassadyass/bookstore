@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: #c3c3c3;
+}
+#section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 40px;
+    width: 700px;
+    height: 400px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+#section div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+}
+#section h1{
+    font-family: "Bad Script", cursive;
+}
+#section:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+#section p{
+    font-family: 'Roboto';
+}
+#section button{
+    background-color:  #6b2355;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    color: #ccc;
+    font-weight: 400;
+}
+#section button:hover{
+    background-color: #953077;
+    cursor: pointer;
+}
