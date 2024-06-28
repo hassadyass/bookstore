@@ -16,23 +16,22 @@
 <body>
 	<div class="bg"	>
 	<nav>
+		<i class="fas fa-shopping-cart"></i>
 		<ul>
 			<li><a href="#Home">Home</a></li>
 			<li class="hiddenlist">Genres
 				<ol>
-					<li>Romance</li>
-					<li>Classics</li>
-					<li>Horror</li>
-					<li>Poetry</li>
-					<li>Philosophy</li>
-					<li>Other</li>
+					
+					<li><a href="#classics">Classics</a></li>
+					<li><a href="#Romance">Romance</a></li>
+					<li><a href="#horror">Horror</a></li>
+					<li><a href="#poetry">Poetry</a></li>
+					<li><a href="#philo">Philosophy</a></li>
+					<li><a href="#other">Other</a></li>
 					
 				</ol>
 			</li>
-			<li>
-				<i class="fas fa-shopping-cart"></i>
-				
-			</li>
+			
 		</ul>
 	</nav>
 	<section id="Home">
@@ -41,42 +40,8 @@
 	</section>
 	</div>
 	<div class="anotherbg">
-		<section id="Romance">
-			<h3>Romance</h3>
-			<div class="card-container">
-				<div class="card">
-					<img src="./images/romance/thingswehidefromthelight.jpeg">
-					<h7>Things We Hide From The Light</h7>
-					<p>"Things We Hide from the Light" by Lucy Score is a contemporary romance novel about Harper Ward, who returns to her hometown after her grandmother's death. Back in town, she reconnects with Bennett Caldwell, the sheriff, and together they unravel family secrets, confront the past, and find a chance at love amidst personal growth and emotional healing.</p>
-					<button>Add To Cart</button>
-				</div>
-				<div class="card">
-					<img src="./images/romance/thingweleftbehind.jpeg">
-					<h7>Things We Left Behind</h7>
-					<p>"Things We Left Behind" by Lucy Score is a contemporary romance about Dax Pierce, a former NFL player turned coach, who finds love with Harlow James, a bookstore owner and single mother, as they navigate personal challenges and discover second chances in a small town setting.</p>
-					<button>Add To Cart</button>
-				</div>
-				<div class="card">
-					<img src="./images/romance/twistedlies.jpeg">
-					<h7>Twisted Lies</h7>
-					<p>"Twisted Lies" by Ana Huang is a gripping romantic suspense novel about Olivia Jones, whose relationship with the wealthy Alexander Burnham uncovers dangerous secrets and deception, testing their love amidst intrigue and suspense.</p>
-					<button>Add To Cart</button>
-				</div>
-				<div class="card">
-					<img src="./images/romance/twistedlove.jpeg">
-					<h7>Twisted Love</h7>
-					<p>Alex Volkov is a devil blessed with the face of an angel and cursed with a past he can’t escape.
-						Driven by a tragedy that has haunted him for most of his life, his ruthless pursuits for success and vengeance leave little room for matters of the heart.
-						But when he’s forced to look after his best friend’s sister, he starts to feel something in his chest:
-						A crack.
-						A melt.
-						A fire that could end his world as he knew it.</p>
-						<button>Add To Cart</button>
-					</div>
-			</div>
-		</section>
 		<section id="classics">
-			<h3>Classics</h3>
+			<h3 class="genre">Classics</h3>
 			<div class="card-container">
 				<div class="card">
 					<img src="./images/classics/Anna Karenina, by Leo Tolstoy_.jpeg">
@@ -104,8 +69,43 @@
 				</div>
 			</div>
 		</section>
+		<section id="Romance">
+			<h3 class="genre">Romance</h3>
+			<div class="card-container">
+				<div class="card">
+					<img src="./images/romance/thingswehidefromthelight.jpeg">
+					<h7>Things We Hide From The Light</h7>
+					<p>"Things We Hide from the Light" by Lucy Score is a contemporary romance novel that delves into themes of personal secrets, emotional vulnerability, and the transformative power of love.</p>
+					<button>Add To Cart</button>
+				</div>
+				<div class="card">
+					<img src="./images/romance/thingweleftbehind.jpeg">
+					<h7>Things We Left Behind</h7>
+					<p>"Things We Left Behind" by Lucy Score is a contemporary romance about Dax Pierce, a former NFL player turned coach, who finds love with Harlow James, a bookstore owner and single mother, as they navigate personal challenges and discover second chances in a small town setting.</p>
+					<button>Add To Cart</button>
+				</div>
+				<div class="card">
+					<img src="./images/romance/twistedlies.jpeg">
+					<h7>Twisted Lies</h7>
+					<p>"Twisted Lies" by Ana Huang is a gripping romantic suspense novel about Olivia Jones, whose relationship with the wealthy Alexander Burnham uncovers dangerous secrets and deception, testing their love amidst intrigue and suspense.</p>
+					<button>Add To Cart</button>
+				</div>
+				<div class="card">
+					<img src="./images/romance/twistedlove.jpeg">
+					<h7>Twisted Love</h7>
+					<p>Alex Volkov is a devil blessed with the face of an angel and cursed with a past he can’t escape.
+						Driven by a tragedy that has haunted him for most of his life, his ruthless pursuits for success and vengeance leave little room for matters of the heart.
+						But when he’s forced to look after his best friend’s sister, he starts to feel something in his chest:
+						A crack.
+						A melt.
+						A fire that could end his world as he knew it.</p>
+						<button>Add To Cart</button>
+					</div>
+			</div>
+		</section>
+		
 		<section id="horror">
-			<h3>Horror</h3>
+			<h3 class="genre">Horror</h3>
 			<div class="card-container">
 				<div class="card">
 					<img src="./images/Horror/dracula.jpeg">
@@ -134,7 +134,7 @@
 			</div>
 		</section>
 		<section id="poetry">
-			<h3>Poetry</h3>
+			<h3 class="genre">Poetry</h3>
 			<div class="card-container">
 				<div class="card">
 					<img src="./images/poetry/Because I Could Not Stop for Death_ Amanda Flower_ 9780593336946.jpeg">
@@ -145,7 +145,8 @@
 				<div class="card">
 					<img src="./images/poetry/Teachings of Rumi download the PDF Masnavi-I Ma_'navi.jpeg">
 					<h7>Teachings Of Rumi</h7>
-					<p>Rumi's teachings emphasize love as a transformative force, the spiritual journey towards enlightenment through inner exploration and purification, the unity of all creation, and the pursuit of divine union through mystical experiences and practices. His poetry and writings inspire wisdom, compassion, and a deeper understanding of the human soul and its connection to the divine.</p>
+					<p>
+						Rumi's teachings emphasize love, unity, and spiritual growth, encouraging seekers to find the divine within and connect with all creation through love and devotion.</p>
 					<button>Add To Cart</button>
 				</div>
 				<div class="card">
@@ -164,7 +165,7 @@
 			</div>
 		</section>
 		<section id="philo">
-			<h3>Philosophy</h3>
+			<h3 class="genre">Philosophy</h3>
 			<div class="card-container">
 				<div class="card">
 					<img src="./images/philo/_Distrust everyone in whom the impulse to punish….jpeg">
@@ -187,13 +188,13 @@
 				<div class="card">
 					<img src="./images/philo/Discourse on the Method and Meditations on First Philosophy (Rethinking the Western Tradition).jpeg">
 					<h7>Discourse on the Method And Meditations on First Philosophy </h7>
-					<p>Discourse on the Method: Descartes' work outlining his method of doubt and skepticism to establish certain knowledge, including his famous statement "Cogito, ergo sum" (I think, therefore I am).Meditations on First Philosophy: Descartes' reflections on metaphysical themes such as the existence of God, the mind-body distinction, and the certainty of knowledge, presented as a series of philosophical meditations.</p>
+					<p>Descartes presents a method for acquiring knowledge based on doubt and rational thinking, introducing "I think, therefore I am" (Cogito, ergo sum) and explores foundational philosophical questions about existence, reality, and the nature of the mind, seeking to establish certain knowledge.</p>
 					<button>Add To Cart</button>
 				</div>
 			</div>
 		</section>
 		<section id="other">
-			<h3>Other</h3>
+			<h3 class="genre">Other</h3>
 			<div class="card-container">
 				<div class="card">
 					<img src="./images/other/Don't talk to me about life___.jpeg">
@@ -221,12 +222,20 @@
 				</div>
 			</div>
 		</section>
-	</div>
+	
+</div>
 	<footer>
-		<p>"Explore endless worlds and stories at [Bookstore Name], where every page turns into a new adventure. Embrace the joy of reading with our curated collection of books, perfect for every reader and occasion. Discover your next favorite story today!"</p>
-		<a href="https://www.instagram.com/ktebi.store/">
-			<img src="./images/Instagram icon - Free download on Iconfinder.jpeg">
-		</a>
+		<p>Explore endless worlds and stories at the Bookish Store, where every page turns into a new adventure. Embrace the joy of reading with our curated collection of books, perfect for every reader and occasion. Discover your next favorite story today! Feel free to contact us on:</p>
+		<div class="foot">
+			<a href="https://www.instagram.com/yessmine.hassad/">
+				<i class="fa-brands fa-instagram"></i>
+			</a>
+			<a href="https://www.facebook.com/yessmine.hassad/">
+				<i class="fa-brands fa-facebook-f"></i>
+			</a>
+			<i class="fa-solid fa-envelope"></i>
+			<i class="fa-solid fa-phone"></i>
+		</div>
 	</footer>
 </body>
 </html>

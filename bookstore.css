@@ -6,17 +6,15 @@
 *{
     padding: 0;
     margin: 0;
-    position: relative;
 }
-
+nav i{
+    color: white;
+}
 nav{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     padding: 20px 100px;
-    position: sticky;
-    top: 0;
-
 
 }
 nav ul{
@@ -36,9 +34,9 @@ nav ul li{
 .hiddenlist ol {
     display: none; 
     position: absolute; 
-    top: 100%; 
-    left: 100px; 
-    background-color: white; 
+    top: 0; 
+    left: 40px; 
+    background-color: #c3c3c3; 
     padding: 10px; 
     border: 1px solid #ccc;
     z-index: 1;
@@ -46,13 +44,23 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
     color: black;
+    font-family: 'Roboto';
+    
+}
+.hiddenlist ol li:hover {
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.5s ease-in-out ;
 }
 nav ul li a:hover{
-    color: #904d4d;
+    color: #aa3f8a;
 }
 
 .hiddenlist:hover ol {
-    display: block;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
     
 }
 
@@ -61,7 +69,7 @@ nav ul li a:hover{
     cursor: pointer; 
 }
 .hiddenlist:hover{
-    color: #904d4d;
+    color: #aa3f8a;
 }
 
 .bg{
@@ -71,6 +79,7 @@ nav ul li a:hover{
     background-position: center;
     height: 100vh;
     width: 100%;
+    
 }
 #Home{
     display: flex;
@@ -98,5 +107,162 @@ nav ul li a:hover{
     font-weight: 400;
     text-align: justify;
 }
+.anotherbg{
+    background-color: #c3c3c3;
+}
 
+.card img{
+    max-width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+#Romance{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+    
+}
+.card-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 30px;
+    width: 1100px;
+    border: 1px solid;
+    border-radius: 10px ;
+    border-color: #9b9b9b;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    padding: 30px;
+    width: 900px;
+    height: 700px;
+}
+.card h7 {
+    display: block;
+    font-size: 15px;
+    margin: 10px 0;
+    font-family: 'Roboto';
+    font-weight: 500;
+    text-align: center;
+}
+.card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    height: 200px;
+}
+.card button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Roboto';
+    background-color: #6b2355;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.card button:hover {
+    background-color: #aa3f8a;
+    transition: 0.4s;
+}
+
+.card:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+#classics{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+    
+}
+.genre{
+    font-size: 40px;
+    font-family: "Bad Script", cursive;
+}
+
+#horror{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+    
+}
+
+#poetry{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+    
+}
+
+#philo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+    
+}
+
+#other{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+    
+}
+footer{
+    background-color: #c3c3c3;
+}
+footer i{
+    color: #6b2355;
+    border-radius: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+}
+footer .foot i:hover{
+    cursor: pointer;
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+}
+footer p{
+    width: 900px;
+    text-align: center;
+    padding: 30px;
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+footer .foot{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
