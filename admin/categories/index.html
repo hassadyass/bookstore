@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Catégories - Administration</title>
+    <link rel="stylesheet" href="../../bookstore.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Barre de Navigation -->
+        <header class="admin-nav">
+            <div class="nav-content">
+                <nav class="nav-menu">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class="fas fa-home"></i>
+                                <span>Tableau de Bord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../books/index.html">
+                                <i class="fas fa-book"></i>
+                                <span>Livres</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Catégories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../users/index.html">
+                                <i class="fas fa-users"></i>
+                                <span>Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../deliveries/index.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Commandes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../coupons/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Bons de Réduction</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../payments/index.html">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Paiements</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <div class="content-container">
+                <header class="admin-header">
+                    <div class="header-content">
+                        <h2>Gestion des Catégories</h2>
+                        <div class="header-actions">
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="categorySearch" placeholder="Rechercher...">
+                            </div>
+                            <button id="addCategoryBtn" class="add-button">
+                                <i class="fas fa-plus"></i>
+                                Ajouter une Catégorie
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Modal pour ajouter une catégorie -->
+                <div id="addCategoryModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Ajouter une Catégorie</h2>
+                        <form id="categoryForm" onsubmit="return handleAddCategory(event)">
+                            <div class="form-group">
+                                <label for="name">Nom</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input type="file" id="image" name="image" accept="image/*">
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="cancel-button" onclick="hideAddCategoryForm()">Annuler</button>
+                                <button type="submit" class="save-button">Ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="categories-container">
+                    <table class="categories-table" id="categoriesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoriesBody">
+                            <!-- Catégories seront insérées ici -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../form.js"></script>
+    <script src="categories.js"></script>
+</body>
+</html>

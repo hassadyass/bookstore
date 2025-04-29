@@ -10,27 +10,73 @@
 nav i{
     color: white;
 }
-nav{
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .search-bar input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .search-bar button {
+    background-color: #6b2355;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #e94fbb;
+  }
+  
+  .search-bar button i {
+    font-size: 14px;
+  }
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 100px;
+    position: relative;
+}
 
-}
-nav ul{
+nav ul {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
+    gap: 30px;
+    list-style: none;
 }
-nav ul li{
+nav ul li.hiddenlist {
+    list-style-type: none;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 18px;
+}
+
+nav ul li a {
+    color: white !important;
     list-style-type: none;
     font-family: 'Roboto';
     font-weight: 500;
-    color: black;
-    font-size: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
 }
-
+nav ul li a:hover {
+    color: #e94fbb;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 .hiddenlist ol {
     display: none; 
     position: absolute; 
@@ -268,3 +314,173 @@ footer .foot{
     justify-content: space-evenly;
     gap: 20px;
 }
+
+/* Cart Modal Styles */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.cart-content {
+    background: #c3c3c3;
+    color: black;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.cart-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.5em;
+}
+
+.close-cart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.close-cart:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.close-cart i {
+    font-size: 24px;
+}
+
+.cart-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 10px;
+    border-radius: 25px;
+    width: 200px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.minusBtn, .plusBtn {
+    padding: 8px 15px;
+    border: none;
+    background: #6b2355;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.minusBtn:hover, .plusBtn:hover {
+    background: #e94fbb;
+    transform: scale(1.1);
+}
+
+.quantity-controls .quantity {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.cart-item {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+.cart-item h3 {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.cart-item p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.commander-btn, .delete {
+    background: white;
+    color: #6b2355;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 150px;
+    margin: 10px 0;
+}
+
+.commander-btn:hover {
+    background: #6b2355;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.delete:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+.cart-btn, .user-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cart-btn i, .user-btn i {
+    font-size: 25px;
+    color: white;
+}
+
+.cart-btn span {
+    font-size: 12px;
+    color: white;
+    margin-left: 5px;
+}
+
+

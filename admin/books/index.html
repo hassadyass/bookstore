@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Livres - Administration</title>
+    <link rel="stylesheet" href="../../bookstore.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Barre de Navigation -->
+        <header class="admin-nav">
+            <div class="nav-content">
+                <nav class="nav-menu">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class="fas fa-home"></i>
+                                <span>Tableau de Bord</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fas fa-book"></i>
+                                <span>Livres</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../categories/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Catégories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../users/index.html">
+                                <i class="fas fa-users"></i>
+                                <span>Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../deliveries/index.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Commandes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../coupons/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Bons de Réduction</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../payments/index.html">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Paiements</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <div class="content-container">
+                <header class="admin-header">
+                    <div class="header-content">
+                        <h2>Gestion des Livres</h2>
+                        <div class="header-actions">
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="bookSearch" placeholder="Rechercher...">
+                            </div>
+                            <button id="addBookBtn" class="add-button" onclick="showAddBookForm()">
+                                <i class="fas fa-plus"></i>
+                                Ajouter un Livre
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Formulaire d'ajout de livre -->
+                <div id="addBookModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Ajouter un Livre</h2>
+                        <form id="bookForm" onsubmit="return handleAddBook(event)">
+                            <div class="form-group">
+                                <label for="title">Titre</label>
+                                <input type="text" id="title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Auteur</label>
+                                <input type="text" id="author" name="author" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Prix (€)</label>
+                                <input type="number" id="price" name="price" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">Stock</label>
+                                <input type="number" id="stock" name="stock" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Catégorie</label>
+                                <select id="category" name="category" required>
+                                    <!-- Les options seront chargées dynamiquement -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="isbn">ISBN</label>
+                                <input type="text" id="isbn" name="isbn" pattern="[0-9]{13}" title="13 chiffres">
+                            </div>
+                            <div class="form-group">
+                                <label for="coverImage">Image de Couverture</label>
+                                <input type="file" id="coverImage" name="coverImage" accept="image/*">
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="cancel-button" onclick="hideAddBookForm()">Annuler</button>
+                                <button type="submit" class="save-button">Ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal pour les détails du livre -->
+                <div id="bookDetailsModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                    </div>
+                </div>
+
+                <!-- Modal pour l'édition du livre -->
+                <div id="editBookModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Modifier le Livre</h2>
+                        <form id="editBookForm">
+                            <input type="hidden" id="editBookId">
+                            <div class="form-group">
+                                <label for="editTitle">Titre</label>
+                                <input type="text" id="editTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editAuthor">Auteur</label>
+                                <input type="text" id="editAuthor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPrice">Prix (€)</label>
+                                <input type="number" id="editPrice" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editStock">Stock</label>
+                                <input type="number" id="editStock" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editCategory">Catégorie</label>
+                                <select id="editCategory" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editDescription">Description</label>
+                                <textarea id="editDescription"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="editIsbn">ISBN</label>
+                                <input type="text" id="editIsbn">
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="cancel-button">Annuler</button>
+                                <button type="submit" class="save-button">Enregistrer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Table des livres -->
+                <div class="books-container">
+                    <table class="books-table" id="booksTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Titre</th>
+                                <th>Auteur</th>
+                                <th>Prix</th>
+                                <th>Stock</th>
+                                <th>Catégorie</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="booksBody">
+                            <!-- Livres seront insérés ici -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Scripts -->
+    <script src="../../bookstore.js"></script>
+    <script src="../form.js"></script>
+    <script>
+        // Données statiques
+        window.books = [
+            {
+                id: 1,
+                title: "Le Petit Prince",
+                author: "Antoine de Saint-Exupéry",
+                price: 15.99,
+                stock: 10,
+                category: "Classiques",
+                description: "Un classique de la littérature française.",
+                isbn: "9782207210001",
+                coverImage: "default-book.jpg",
+                createdAt: "2025-04-29"
+            },
+            {
+                id: 2,
+                title: "1984",
+                author: "George Orwell",
+                price: 12.99,
+                stock: 5,
+                category: "Science-Fiction",
+                description: "Un roman dystopique célèbre.",
+                isbn: "9782070427713",
+                coverImage: "default-book.jpg",
+                createdAt: "2025-04-29"
+            }
+        ];
+
+        window.categories = [
+            { name: "Classiques" },
+            { name: "Science-Fiction" },
+            { name: "Romans" },
+            { name: "Biographies" },
+            { name: "Histoire" }
+        ];
+    </script>
+    <script src="books.js"></script>
+</body>
+</html>

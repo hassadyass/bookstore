@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Utilisateurs - Administration</title>
+    <link rel="stylesheet" href="../../bookstore.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="users.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Barre de Navigation -->
+        <header class="admin-nav">
+            <div class="nav-content">
+                <nav class="nav-menu">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class="fas fa-home"></i>
+                                <span>Tableau de Bord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../books/index.html">
+                                <i class="fas fa-book"></i>
+                                <span>Livres</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../categories/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Catégories</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fas fa-users"></i>
+                                <span>Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../deliveries/index.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Commandes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../coupons/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Bons de Réduction</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../payments/index.html">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Paiements</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <div class="content-container">
+                <header class="admin-header">
+                    <div class="header-content">
+                        <h2>Gestion des Utilisateurs</h2>
+                        <div class="header-actions">
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="userSearch" placeholder="Rechercher...">
+                            </div>
+                            <button id="addUserBtn" class="add-button">
+                                <i class="fas fa-plus"></i>
+                                Ajouter un Utilisateur
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Modal pour ajouter un utilisateur -->
+                <div id="addUserModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Ajouter un Utilisateur</h2>
+                        <form id="userForm" onsubmit="return handleAddUser(event)">
+                            <div class="form-group">
+                                <label for="fullName">Nom Complet</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Rôle</label>
+                                <select id="role" name="role" required>
+                                    <option value="user">Utilisateur</option>
+                                    <option value="admin">Administrateur</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Statut</label>
+                                <select id="status" name="status" required>
+                                    <option value="active">Actif</option>
+                                    <option value="inactive">Inactif</option>
+                                </select>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="cancel-button" onclick="hideAddUserForm()">Annuler</button>
+                                <button type="submit" class="save-button">Ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Liste des Utilisateurs -->
+                <div class="users-container">
+                    <table class="users-table" id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom Complet</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Rôle</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersBody">
+                            <!-- Utilisateurs seront insérés ici -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../form.js"></script>
+    <script src="users.js"></script>
+</body>
+</html>

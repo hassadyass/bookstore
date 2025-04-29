@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Bons de Réduction - Administration</title>
+    <link rel="stylesheet" href="../../bookstore.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="./coupons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Barre de Navigation -->
+        <header class="admin-nav">
+            <div class="nav-content">
+                <nav class="nav-menu">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class="fas fa-home"></i>
+                                <span>Tableau de Bord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../books/index.html">
+                                <i class="fas fa-book"></i>
+                                <span>Livres</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../categories/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Catégories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../users/index.html">
+                                <i class="fas fa-users"></i>
+                                <span>Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../deliveries/index.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Commandes</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Bons de Réduction</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../payments/index.html">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Paiements</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Contenu Principal -->
+        <main class="admin-main">
+            <div class="content-container">
+                <header class="admin-header">
+                    <div class="header-content">
+                        <h2>Gestion des Bons de Réduction</h2>
+                        <div class="header-actions">
+                            <button class="add-button" id="add-coupon-btn" onclick="showAddModal()">
+                                <i class="fas fa-plus"></i>
+                                Ajouter un Nouveau Bon
+                            </button>
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Rechercher des bons...">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Modal pour ajouter un coupon -->
+                <div id="addCouponModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Ajouter un Nouveau Coupon</h2>
+                        <form id="couponForm" onsubmit="return handleAddCoupon(event)">
+                            <div class="form-group">
+                                <label for="code">Code du Coupon</label>
+                                <input type="text" id="code" name="code" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <select id="type" name="type" required>
+                                    <option value="percentage">Pourcentage</option>
+                                    <option value="fixed">Montant Fixe</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="value">Valeur</label>
+                                <input type="number" id="value" name="value" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="minAmount">Montant Minimum</label>
+                                <input type="number" id="minAmount" name="minAmount" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="maxDiscount">Remise Maximale</label>
+                                <input type="number" id="maxDiscount" name="maxDiscount" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate">Date de Début</label>
+                                <input type="date" id="startDate" name="startDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">Date de Fin</label>
+                                <input type="date" id="endDate" name="endDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Statut</label>
+                                <select id="status" name="status" required>
+                                    <option value="active">Actif</option>
+                                    <option value="inactive">Inactif</option>
+                                </select>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="cancel-button" onclick="hideAddCouponForm()">Annuler</button>
+                                <button type="submit" class="save-button">Ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Liste des Bons de Réduction -->
+                <div class="coupons-container">
+                    <div class="coupons-filters">
+                        <div class="filter-group">
+                            <label for="status">Statut</label>
+                            <select id="status" onchange="filterCoupons()">
+                                <option value="">Tous les Statuts</option>
+                                <option value="active">Actif</option>
+                                <option value="expired">Expiré</option>
+                                <option value="inactive">Inactif</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="type">Type</label>
+                            <select id="type" onchange="filterCoupons()">
+                                <option value="">Tous les Types</option>
+                                <option value="percentage">Pourcentage</option>
+                                <option value="fixed">Montant Fixe</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <table class="coupons-table" id="couponsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Code</th>
+                                <th>Type</th>
+                                <th>Valeur</th>
+                                <th>Montant Minimum</th>
+                                <th>Remise Maximale</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="couponsBody">
+                            <!-- Les coupons seront chargés dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./coupons.js"></script>
+</body>
+</html>

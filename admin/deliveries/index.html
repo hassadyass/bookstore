@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Commandes - Administration</title>
+    <link rel="stylesheet" href="../../bookstore.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="./deliveries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Barre de Navigation -->
+        <header class="admin-nav">
+            <div class="nav-content">
+                <nav class="nav-menu">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class="fas fa-home"></i>
+                                <span>Tableau de Bord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../books/index.html">
+                                <i class="fas fa-book"></i>
+                                <span>Livres</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../categories/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Catégories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../users/index.html">
+                                <i class="fas fa-users"></i>
+                                <span>Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Commandes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../coupons/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Bons de Réduction</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../payments/index.html">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Paiements</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Contenu Principal -->
+        <main class="admin-main">
+            <div class="content-container">
+                <header class="admin-header">
+                    <div class="header-content">
+                        <h2>Gestion des Commandes</h2>
+                        <div class="header-actions">
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="deliverySearch" placeholder="Rechercher des commandes...">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Liste des Commandes -->
+                <section class="deliveries-container">
+                    <div class="table-container">
+                        <table class="deliveries-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Commande</th>
+                                    <th>Client</th>
+                                    <th>Adresse</th>
+                                    <th>Méthode</th>
+                                    <th>Date</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="deliveriesBody">
+                                <!-- Les commandes seront chargées dynamiquement -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="../admin.js"></script>
+    <script src="./deliveries.js"></script>
+</body>
+</html>

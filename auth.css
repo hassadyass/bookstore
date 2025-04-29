@@ -1,0 +1,98 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #6b2355;
+}
+
+.auth-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.auth-box h2 {
+    text-align: center;
+    color: #6b2355;
+    margin-bottom: 30px;
+    font-family: 'Alex Brush', cursive;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b2355;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #6b2355;
+    box-shadow: 0 0 0 3px rgba(107, 35, 85, 0.1);
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.remember-me label {
+    font-size: 14px;
+    color: #666;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    background: #6b2355;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-box button:hover {
+    background: #e94fbb;
+    transform: translateY(-2px);
+}
+
+.redirect {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.redirect a {
+    color: #6b2355;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.redirect a:hover {
+    color: #e94fbb;
+}

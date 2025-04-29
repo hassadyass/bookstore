@@ -15,27 +15,35 @@
 </head>
 <body>
 	<div class="bg"	>
-	<nav>
-		<a href="./cart.html"><i class="fas fa-shopping-cart">
+		<nav>
+			<ul>
+				<li><a href="#Home">Home</a></li>
+				<li class="hiddenlist">Categories
+					<ol>
+						<li><a href="#classics">Classics</a></li>
+						<li><a href="#Romance">Romance</a></li>
+						<li><a href="#horror">Horror</a></li>
+						<li><a href="#poetry">Poetry</a></li>
+						<li><a href="#philo">Philosophy</a></li>
+						<li><a href="#other">Other</a></li>
+					</ol>
+				</li>
+			</ul>
+			<div class="nav-right">
+				<form class="search-bar" action="#Home" method="get">
+					<input type="text" placeholder="Search books..." name="search" />
+					<button type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<div class="cart-btn" onclick="toggleCart()">
+					<i class="fas fa-shopping-cart"></i>
+					<span id="cart-count">0</span>
+				</div>
+				<a href="login.html" class="user-btn">
+					<i class="fas fa-user"></i>
+				</a>
+			</div>
+		</nav>
 
-		</i></a>
-		<ul>
-			<li><a href="#Home">Home</a></li>
-			<li class="hiddenlist">Genres
-				<ol>
-					
-					<li><a href="#classics">Classics</a></li>
-					<li><a href="#Romance">Romance</a></li>
-					<li><a href="#horror">Horror</a></li>
-					<li><a href="#poetry">Poetry</a></li>
-					<li><a href="#philo">Philosophy</a></li>
-					<li><a href="#other">Other</a></li>
-					
-				</ol>
-			</li>
-			
-		</ul>
-	</nav>
 	<section id="Home">
 		<h1>Serendipity Books & Curiosities</h1>
 		<p>Welcome to our online heaven for book lovers. Embark on a journey through our vast digital library where each click unveils a world of literary wonders. Explore a myriad of timeless classics, immerse yourself in gripping narratives, and discover hidden gems waiting to be cherished. Whether you seek knowledge, adventure, or solace within the pages, our expansive collection promises to ignite your imagination and deepen your appreciation for the written word. Join us in celebrating the art of storytelling, where every book is a gateway to limitless possibilities. Let the pages unfold stories of love and passion, drawing you closer to the heart of countless narratives.</p>
@@ -235,6 +243,29 @@
 			<i class="fa-solid fa-phone"></i>
 		</div>
 	</footer>
+	<!-- Cart Modal -->
+	<!-- Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+    <div class="cart-content">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-actions">
+			<div class="quantity-controls">
+				<button class="minusBtn" onclick="updateQuantity(-1)">-</button>
+				<span class="quantity">0</span>
+				<button class="plusBtn" onclick="updateQuantity(1)">+</button>
+			</div>
+			<p>Total: <span class="total">0</span> TND</p>
+			<div class="action-buttons">
+				<button class="commander-btn">Checkout</button>
+				<button class="delete" onclick="deleteItem()">Clear Cart</button>
+			</div>
+		</div>
+        <button class="close-cart">
+			<i class="fas fa-arrow-left"></i>
+		</button>
+    </div>
+</div>
 	<script src="./bookstore.js"></script>
 </body>
 </html>

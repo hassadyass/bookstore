@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Administration de la Librairie</title>
+    <link rel="stylesheet" href="../bookstore.css">
+    <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Barre de Navigation -->
+        <header class="admin-nav">
+            <div class="nav-content">
+                <nav class="nav-menu">
+                    <ul>
+                        <li>
+                            <a href="index.html" class="active">
+                                <i class="fas fa-home"></i>
+                                <span>Tableau de Bord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="books/index.html">
+                                <i class="fas fa-book"></i>
+                                <span>Livres</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="categories/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Catégories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="users/index.html">
+                                <i class="fas fa-users"></i>
+                                <span>Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="deliveries/index.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Commandes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="coupons/index.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Bons de Réduction</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="payments/index.html">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Paiements</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Contenu Principal -->
+        <main class="admin-main">
+            <div class="content-container">
+                <header class="admin-header">
+                    <div class="header-content">
+                        <h2>Tableau de Bord</h2>
+                        <div class="header-actions">
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Rechercher...">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Statistiques du Tableau de Bord -->
+                <section class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-book"></i>
+                        <div class="stat-info">
+                            <h3>Total de Livres</h3>
+                            <p class="stat-number">120</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Total d'Utilisateurs</h3>
+                            <p class="stat-number">500</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-truck"></i>
+                        <div class="stat-info">
+                            <h3>Livraisons</h3>
+                            <p class="stat-number">250</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div class="stat-info">
+                            <h3>Chiffre d'Affaires</h3>
+                            <p class="stat-number">12 500 €</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Activités Récentes -->
+                <section class="recent-activities">
+                    <div class="activity-card">
+                        <h3>Dernières Livraisons</h3>
+                        <div class="activity-list">
+                            <!-- Livraisons seront chargées dynamiquement -->
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Nouveaux Utilisateurs</h3>
+                        <div class="activity-list">
+                            <!-- Utilisateurs seront chargés dynamiquement -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="./admin.js"></script>
+</body>
+</html>
